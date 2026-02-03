@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Libros</title>
+
+    <style> /*Colores de la pagina */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav {
+            background-color: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #003366;
+        }
+    </style>
+</head>
+
+<body>
+
+<header> <!--encabezao de la pagina-->
+    <h1>Sistema de Biblioteca Universitaria</h1>
+    <p>Universidad El Saber – Gestión Académica</p>
+</header>
+
+<nav> <!-- aca es para los redireccionamientos de los menus -->
+    <a href="index.html">Inicio</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="servicios.html">Prestamos</a>
+    <a href="sanciones.html">Multas</a>
+    <a href="contactos.html">Contactos</a>
+</nav>
+
+<section id="catalogo">
+    <h2>Catálogo de Libros Disponibles</h2>
+
+    <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+
+       <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+
+    <div style="width:180px; text-align:center;">
+        <img src="img/Don Quijote.webp"
+     style="width:100%; border-radius:5px; cursor:pointer;"
+     onclick="mostrarLibro('quijote')">
+        <p><strong>Don Quijote de la Mancha</strong></p>
+        <p>Miguel de Cervantes</p>
+    </div>
+
+
+    <div style="width:180px; text-align:center;">
+        <img src="img/Cien años de soledad.webp" 
+        style="width:100%; border-radius:5px; cursor:pointer;"
+        onclick="mostrarLibro('cien')">
+        <p><strong>Cien años de soledad</strong></p>
+        <p>Gabriel García Márquez</p>
+    </div>
+
+    <div style="width:180px; text-align:center;">
+        <img src="img/1984.webp" 
+        style="width:100%; border-radius:5px; cursor:pointer;"
+        onclick="mostrarLibro('ochentaycuatro')">
+        <p><strong>1984</strong></p>
+        <p>George Orwell</p>
+    </div>
+
+    <div style="width:180px; text-align:center;">
+        <img src="img/principito.webp" 
+        style="width:100%; border-radius:5px; cursor:pointer;"
+        onclick="mostrarLibro('principito')">
+        <p><strong>El principito</strong></p>
+        <p>Antoine de Saint-Exupéry</p>
+    </div>
+
+    <div style="width:180px; text-align:center; cursor:pointer;">
+        <img src="img/Harry potter.webp" 
+        style="width:100%; border-radius:5px;"
+        onclick="mostrarLibro('harrypotter')">
+        <p><strong>Harry Potter y la piedra filosofal</strong></p>
+        <p>J. K. Rowling</p>
+    </div>
+
+    <div style="width:180px; text-align:center; cursor:pointer;">
+        <img src="img/Orgullo y prejuicio.webp" 
+        style="width:100%; border-radius:5px;"
+        onclick="mostrarLibro('orgullo')">
+        <p><strong>Orgullo y prejuicio</strong></p>
+        <p>Jane Austen</p>
+    </div>
+
+    <div style="width:180px; text-align:center; cursor:pointer;">
+        <img src="img/Crimen y castigo.webp" 
+        style="width:100%; border-radius:5px;"
+        onclick="mostrarLibro('crimen')">
+        <p><strong>Crimen y castigo</strong></p>
+        <p>Fiódor Dostoyevski</p>
+    </div>
+
+    <div style="width:180px; text-align:center; cursor:pointer;">
+        <img src="img/Señor de los anillos.webp" 
+        style="width:100%; border-radius:5px;"
+        onclick="mostrarLibro('señor')">
+        <p><strong>El señor de los anillos:<br>La comunidad del anillo</strong></p>
+        <p>J. R. R. Tolkien</p>
+    </div>
+
+    <div style="width:180px; text-align:center; cursor:pointer;">
+        <img src="img/Codigo da vinci.webp" 
+        style="width:100%; border-radius:5px;"
+        onclick="mostrarLibro('davinci')">
+        <p><strong>El código Da Vinci</strong></p>
+        <p>Dan Brown</p>
+    </div>
+
+    <div style="width:180px; text-align:center; cursor:pointer;">
+        <img src="img/La odisea.webp" 
+        style="width:100%; border-radius:5px;"
+        onclick="mostrarLibro('odisea')">
+        <p><strong>La Odisea</strong></p>
+        <p>Homero</p>
+    </div>
+
+</div>
+
+</section>
+
+<section id="detalle-libro" style="display:none; text-align:center;">
+    <h2 id="titulo"></h2>
+    <p id="autor"></p>
+
+    <img id="imagen" style="width:300px; margin:20px 0;">
+
+    <p id="descripcion"></p>
+
+    <p id="estado" style="font-weight:bold; margin-top:15px;"></p>
+
+    <button 
+    id="btnReservar" 
+    type="button"
+    onclick="reservarLibro()"
+    style="padding:10px 20px; margin:10px; cursor:pointer;">
+    Reservar libro
+</button>
+
+
+    <br><br>
+
+    <button onclick="volverCatalogo()">⬅ Volver al catálogo</button>
+</section>
+
+
+
+<footer>
+    <p>&copy; 2026 Universidad El Saber – Todos los derechos reservados</p>
+</footer>
+
+<script>
+let libroActual = "";
+
+// Carga reservas
+let reservas = JSON.parse(localStorage.getItem("reservas")) || {};
+
+// 🔧 NORMALIZA datos viejos (true → {reservado:true})
+for (let libro in reservas) {
+    if (typeof reservas[libro] === "boolean") {
+        reservas[libro] = { reservado: reservas[libro] };
+    }
+}
+
+localStorage.setItem("reservas", JSON.stringify(reservas));
+
+function mostrarLibro(libro) {
+    const datos = {
+        quijote: {
+            titulo: "Don Quijote de la Mancha",
+            autor: "Miguel de Cervantes",
+            imagen: "img/Don Quijote.webp",
+            descripcion: "Obra clásica de la literatura universal."
+        },
+        cien: {
+            titulo: "Cien años de soledad",
+            autor: "Gabriel García Márquez",
+            imagen: "img/Cien años de soledad.webp",
+            descripcion: "Historia de la familia Buendía."
+        },
+        ochentaycuatro: {
+            titulo: "1984",
+            autor: "George Orwell",
+            imagen: "img/1984.webp",
+            descripcion: "Novela distópica."
+        },
+        principito: {
+            titulo: "El principito",
+            autor: "Antoine de Saint-Exupéry",
+            imagen: "img/principito.webp",
+            descripcion: "Relato poético sobre la vida."
+        },
+        harrypotter: {
+            titulo: "Harry Potter y la piedra filosofal",
+            autor: "J. K. Rowling",
+            imagen: "img/Harry potter.webp",
+            descripcion: "Inicio de la saga del joven mago."
+        },
+        orgullo: {
+            titulo: "Orgullo y prejuicio",
+            autor: "Jane Austen",
+            imagen: "img/Orgullo y prejuicio.webp",
+            descripcion: "Romance clásico."
+        },
+        crimen: {
+            titulo: "Crimen y castigo",
+            autor: "Fiódor Dostoyevski",
+            imagen: "img/Crimen y castigo.webp",
+            descripcion: "Culpa y moral."
+        },
+        señor: {
+            titulo: "El señor de los anillos",
+            autor: "J. R. R. Tolkien",
+            imagen: "img/Señor de los anillos.webp",
+            descripcion: "Fantasía épica."
+        },
+        davinci: {
+            titulo: "El código Da Vinci",
+            autor: "Dan Brown",
+            imagen: "img/Codigo da vinci.webp",
+            descripcion: "Thriller."
+        },
+        odisea: {
+            titulo: "La Odisea",
+            autor: "Homero",
+            imagen: "img/La odisea.webp",
+            descripcion: "Viaje épico."
+        }
+    };
+
+    libroActual = libro;
+
+    document.getElementById("catalogo").style.display = "none";
+    document.getElementById("detalle-libro").style.display = "block";
+
+    document.getElementById("titulo").textContent = datos[libro].titulo;
+    document.getElementById("autor").textContent = datos[libro].autor;
+    document.getElementById("imagen").src = datos[libro].imagen;
+    document.getElementById("descripcion").textContent = datos[libro].descripcion;
+
+    actualizarEstado();
+}
+
+function actualizarEstado() {
+    const estado = document.getElementById("estado");
+    const boton = document.getElementById("btnReservar");
+
+    if (reservas[libroActual]?.reservado) {
+        estado.textContent = "Estado: RESERVADO";
+        estado.style.color = "red";
+        boton.textContent = "Cancelar reserva";
+    } else {
+        estado.textContent = "Estado: DISPONIBLE";
+        estado.style.color = "green";
+        boton.textContent = "Reservar libro";
+    }
+}
+
+function reservarLibro() {
+    if (!reservas[libroActual]) {
+        reservas[libroActual] = { reservado: true };
+        alert("Libro reservado");
+    } else {
+        reservas[libroActual].reservado = !reservas[libroActual].reservado;
+        alert("Estado de reserva cambiado");
+    }
+
+    localStorage.setItem("reservas", JSON.stringify(reservas));
+    actualizarEstado();
+}
+
+function volverCatalogo() {
+    document.getElementById("detalle-libro").style.display = "none";
+    document.getElementById("catalogo").style.display = "block";
+}
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
